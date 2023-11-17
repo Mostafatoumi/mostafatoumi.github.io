@@ -6,7 +6,7 @@ categories: [Ethical Hacking,python]
 tags: [python]
 ---
 
-<img src="https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.io_img/main/How%20to%20Extract%20Chrome%20Passwords%20in%20Python.jpg" width="738" height="423">
+<img src="https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.github.io/main/assets/img/favicons/HackTheBox/How%20to%20Extract%20Chrome%20Passwords%20in%20Python.jpg" width="738" height="423">
 
 ***
 <center><strong><font color="DarkGray">Extracting saved passwords in the most popular browser is a useful and handy forensic task, as Chrome saves passwords locally in an SQLite database. However, this can be time-consuming when doing it manually.</font></strong></center>
