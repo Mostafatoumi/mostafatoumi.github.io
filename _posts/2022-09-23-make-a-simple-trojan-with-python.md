@@ -6,7 +6,7 @@ categories: [Ethical Hacking,python]
 tags: [python]
 ---
 
-<img src="https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.io_img/main/How%20ToMake%20a%20Simple%20Trojan%20with%20Python%20.png" width="738" height="423">
+<img src="https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.github.io/main/assets/img/favicons/HackTheBox/How%20ToMake%20a%20Simple%20Trojan%20with%20Python%20.png" width="738" height="423">
 
 ***
 <center><strong><font color="DarkGray">For the ones who didn’t know yet, a Trojan Horse Attack consists of embedding en exploit in an innocent-looking Application, or even in a document. As you might have guessed today we will embed a backdoor into a Kivy-made GUI. This attack is quite simple, the only thing you need to know is just some python and networking basics. Let us get started!</font></strong></center>
@@ -120,7 +120,7 @@ Just export the code to the target machine and execute it, in order for the back
 Once you execute the code on the Victim computer, you’ll see a Kivy app saying “hello world” on the victim’s, and you’ll see this on the Attacker’s side:
 
 
-<img src="https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.io_img/main/1.png" width="750" height="150">
+<img src="https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.github.io/main/assets/img/favicons/HackTheBox/1.png" width="750" height="150">
 
 * So, we got a shell on the Victim computer using a Reverse Shell. Great!
 
