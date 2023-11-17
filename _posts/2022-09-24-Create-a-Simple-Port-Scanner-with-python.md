@@ -6,7 +6,7 @@ categories: [Ethical Hacking,python]
 tags: [python]
 ---
 
-<img src="https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.io_img/main/Port%20scanner.png" width="738" height="423">
+<img src="https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.github.io/main/assets/img/favicons/HackTheBox/Port%20scanner.png" width="738" height="423">
 
 ***
 <center><strong><font color="DarkGray">Port scanning is a scanning method for determining which ports on a network device are open, whether it's a server, a router, or a regular machine. A port scanner is just a script or a program that is designed to probe a host for open ports.</font></strong></center>
