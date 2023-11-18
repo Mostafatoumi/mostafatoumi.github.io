@@ -8,11 +8,8 @@ image: Sandworm.png
 img_path: /assets/img/favicons/HackTheBox/Sandworm/
 ---
 
----
-# Description:
-
+# Description :
 Sandworm presents a challenging journey, starting with PGP signatures and SSTI exploration to gain SSH access as 'silentobserver.' Uncovered a Rust script running as root, leveraged a firejail vulnerability for privilege escalation, ultimately achieving root access on the Linux machine.
----
 
 # Recon :
 
@@ -50,7 +47,8 @@ The site redirect us to http://ssa.htb/
 
 
 
-## Website - TCP 443 :
+## website 443 :
+
 This site seems to be the online presence of the Secret Spy Agency (SSA), specializing in cryptology, foreign signals intelligence (SIGINT), and cybersecurity services to enhance national security efforts.
 
 ![main page](home.png)
