@@ -1,27 +1,22 @@
 ---
 layout: post
 title: HackTheBox-Sandworm Walkthrough
-author: MostafaToumi
 date: 2023-11-18 07:00:00 -500
 categories: [HackTheBox Walkthrough]
 tags: [HackTheBox]
 img_path: /assets/img/favicons/HackTheBox/Sandworm/
 ---
 
-# Box :
 ![sandworm image](https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.github.io/main/assets/img/favicons/HackTheBox/Sandworm/Sandworm.png)
-
-# My Rank :
-
-![Alt text](emsec_sandworm.png)
----
-
 # Description:
 
 Sandworm presents a challenging journey, starting with PGP signatures and SSTI exploration to gain SSH access as 'silentobserver.' Uncovered a Rust script running as root, leveraged a firejail vulnerability for privilege escalation, ultimately achieving root access on the Linux machine.
 
-# Recon :
+# My Rank :
 
+![Alt text](emsec_sandworm.png)
+
+# Recon :
 ## Nmap :
 
 ```bash
