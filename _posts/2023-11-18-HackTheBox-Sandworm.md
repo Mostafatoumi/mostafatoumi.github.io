@@ -8,7 +8,10 @@ tags: [HackTheBox]
 img_path: /assets/img/favicons/HackTheBox/Sandworm/
 ---
 
-# Box
+# Box :
+![sandworm image](https://raw.githubusercontent.com/Mostafatoumi/mostafatoumi.github.io/main/assets/img/favicons/HackTheBox/Sandworm/Sandworm.png)
+
+# My Rank :
 
 ![Alt text](emsec_sandworm.png)
 ---
@@ -17,7 +20,7 @@ img_path: /assets/img/favicons/HackTheBox/Sandworm/
 
 Sandworm presents a challenging journey, starting with PGP signatures and SSTI exploration to gain SSH access as 'silentobserver.' Uncovered a Rust script running as root, leveraged a firejail vulnerability for privilege escalation, ultimately achieving root access on the Linux machine.
 
-# Recon
+# Recon :
 
 ## Nmap :
 
