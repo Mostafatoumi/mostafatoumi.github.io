@@ -8,16 +8,14 @@ image: Sandworm.png
 img_path: /assets/img/favicons/HackTheBox/Sandworm/
 ---
 
-
+---
 # Description:
 
 Sandworm presents a challenging journey, starting with PGP signatures and SSTI exploration to gain SSH access as 'silentobserver.' Uncovered a Rust script running as root, leveraged a firejail vulnerability for privilege escalation, ultimately achieving root access on the Linux machine.
-
-# My Rank :
-
-![Alt text](emsec_sandworm.png)
+---
 
 # Recon :
+
 ## Nmap :
 
 ```bash
