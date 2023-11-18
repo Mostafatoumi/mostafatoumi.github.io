@@ -4,7 +4,7 @@ title: HackTheBox-Sandworm Walkthrough
 date: 2023-11-18 07:00:00 -500
 categories: [HackTheBox Walkthrough]
 tags: [HackTheBox]
-image: /assets/img/favicons/HackTheBox/Sandworm/Sandworm.png
+image: Sandworm.png
 img_path: /assets/img/favicons/HackTheBox/Sandworm/
 ---
 
