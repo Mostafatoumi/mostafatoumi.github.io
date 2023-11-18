@@ -8,7 +8,7 @@ tags: [HackTheBox]
 img_path: /assets/img/favicons/HackTheBox/Sandworm/
 ---
 
-> Box
+# Box
 
 ![Alt text](emsec_sandworm.png)
 ---
