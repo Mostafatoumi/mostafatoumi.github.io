@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox-Sandworm Walkthrough
-author: Mostafa Toumi
+author: MostafaToumi
 date: 2023-11-18 07:00:00 -500
 categories: [HackTheBox Walkthrough]
 tags: [HackTheBox]
@@ -121,7 +121,8 @@ Secret Spy Agency's site appears to provide interactive exercises for PGP encryp
 We are moving to the 'Verify Signature' section, generating a PGP public key and PGP signed message. This can be done using a PGP tool that is already available on Debian distribution
 ![verify nignature](verify_signature.png)
 
-* generate pgp public and private keys (): 
+* generate pgp public and private keys ():
+
 ```bash
 ┌──(root㉿emsec)-[~emsec/hackthebox/sandworm]
 └─# gpg --gen-key
@@ -157,6 +158,7 @@ sub   rsa3072 2023-11-17 [E] [expires: 2025-11-16]
 
 ```
 Find the pgp public key we just created :
+
 ```bash
 ┌──(root㉿emsec)-[~emsec/hackthebox/sandworm]
 └─# gpg --verbose --armor --export emsec 
