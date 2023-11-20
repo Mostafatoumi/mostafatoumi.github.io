@@ -4,6 +4,8 @@ title: Active Directory Mastery: A Guide to Windows Server Setup for Penetration
 date: 2022-11-20 07:00:00 -500
 categories: [Ethical Hacking,AD DC]
 tags: [Active Directory]
+image: lab_01.png
+img_path: /assets/img/favicons/HackTheBox/ADDC-LAB/
 ---
 
 # Setting Up a Windows Server for Penetration Testing with Active Directory
