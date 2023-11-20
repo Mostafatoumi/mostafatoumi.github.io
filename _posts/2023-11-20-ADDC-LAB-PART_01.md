@@ -102,8 +102,11 @@ windows server 2012 r2 :
 `Mask`         : 255.0.0.0
 
 `DNS`          : 127.0.0.1 (We will make changes to this in part 2 as we need to create a DNS server)
-ANTIVIRUS : ENABLE
-FIREWALL  : DISABLE 
+
+`ANTIVIRUS` : ENABLE
+
+`FIREWALL`  : DISABLE 
+
 Why disable the firewall? Because the firewall might block ICMP connections between the host server and the client, as well as the client to the server. Alternatively, you would have to allow these ports through the firewall settings
 
 windows 10 (clients) and kali linux :
