@@ -137,12 +137,12 @@ Link This LAN segment with the second interface
 
 Windows Server 2012 r2 :
 
-By default Ethenet0 is the first interface and the secod interface that we added is Ethernet1 . 
+By default Ethenet0 is the first interface and the second interface that we added is Ethernet1 . 
 To set a static IP for Ethernet1 in Windows using CMD, you can use the following commands (`win + R` & `cmd` ):
 
 ![WIN + R](WIN-R.png)
 
-```cmd
+```powershell
 #IP Address
 netsh interface ipv4 set address name="Ethernet1" static 10.10.10.10 255.0.0.0 10.10.10.1
 #DNS
@@ -153,7 +153,7 @@ netdom renamecomputer %COMPUTERNAME% /newname:SRV-1 /reboot:0
 ```
 ![interface Eth1 SRV-1](Interface-SRV-1.png)
 
-```cmd
+```powershell
 #To disable Firewall
 netsh advfirewall set allprofiles state off
 #If you want to enable it later
@@ -166,7 +166,7 @@ Windows 10 (Clinet-1 & Clinet-2):
 
 - Client-1 :
 
-```cmd
+```powershell
 #IP Address
 netsh interface ipv4 set address name="Ethernet1" static 10.10.10.20 255.0.0.0 10.10.10.10
 
@@ -183,7 +183,7 @@ netsh advfirewall set allprofiles state on
 ```
 - Client-2 :
 
-```cmd
+```powershell
 #IP Address
 netsh interface ipv4 set address name="Ethernet1" static 10.10.10.30 255.0.0.0 10.10.10.10
 
