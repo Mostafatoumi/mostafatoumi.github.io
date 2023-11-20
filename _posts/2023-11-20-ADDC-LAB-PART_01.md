@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Active Directory Mastery: A Guide to Windows Server Setup for Penetration Testing
+title: Active Directory Mastery - A Guide to Windows Server Setup for Penetration Testing
 date: 2022-11-20 07:00:00 -500
 categories: [Ethical Hacking,AD DC]
 tags: [Active Directory]
