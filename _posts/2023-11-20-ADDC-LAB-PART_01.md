@@ -89,13 +89,147 @@ Choose a virtualization platform like [VMware Workstation Pro](https://www.vmwar
 
 
 
-## 3. Windows Server Installation
-   - Step-by-step guide on installing Windows Server.
-   - Emphasize security considerations during installation.
+## 3. Basic Configuration
 
-## 4. Basic Configuration
-   - Initial setup of Windows Server settings.
-   - Configuring networking (static IP, DNS settings).
+### Configuration script:
+
+windows server 2012 r2 :
+
+`MACHINE NAME` : SRV-1
+
+`IPv4 Address` : 10.10.10.10/8
+
+`Mask`         : 255.0.0.0
+
+`DNS`          : 127.0.0.1 (We will make changes to this in part 2 as we need to create a DNS server)
+ANTIVIRUS : ENABLE
+FIREWALL  : DISABLE 
+Why disable the firewall? Because the firewall might block ICMP connections between the host server and the client, as well as the client to the server. Alternatively, you would have to allow these ports through the firewall settings
+
+windows 10 (clients) and kali linux :
+
+For simplicity, we will assign the following IP addresses: Client 1 - 10.10.10.20, Client 2 - 10.10.10.30, and Kali Linux - 10.10.10.40
+
+*<span style="color:red"> Note </span>: The DNS and default gateway will be set to the server's address, which is 10.10.10.10.*
+
+I think that is clear. Now, let's configure this setup
+
+
+
+### Adding a second interface in VMware
+After installing Windows Server 2012, Windows 10, and Kali Linux, the next step is to configure the network. Create a second bridged virtual network adapter directed to the second card and add it to the Virtual Machine. Why? This is done to isolate this LAN segment, enabling seamless communication among these machines. The first interface ensures internet connectivity for downloading or upgrading system components.
+
+To add a new network adapter, navigate to `Settings of SRV Machine  > click add` (make sure the first interface is `NAT` for Internet connection) 
+
+![vm interface](interface_config_01.png)
+
+Select `Network Adapter` and click `Finish` 
+
+![vm interface](interface_config_02.png)
+Create a LAN Segment called 'LAB.LOCAL'
+![vm interface](interface_config_03.png)
+Link This LAN segment with the second interface 
+![vm interface](interface_config_04.png)
+
+*<span style="color:red"> Note </span>: You can follow the same previous steps for all machines.*
+
+### Configuring networking (static IP, DNS settings).
+
+Windows Server 2012 r2 :
+
+By default Ethenet0 is the first interface and the secod interface that we added is Ethernet1 . 
+To set a static IP for Ethernet1 in Windows using CMD, you can use the following commands (`win + R` & `cmd` ):
+
+![WIN + R](WIN-R.png)
+
+```cmd
+#IP Address
+netsh interface ipv4 set address name="Ethernet1" static 10.10.10.10 255.0.0.0 10.10.10.1
+#DNS
+netsh interface ipv4 set dns name="Ethernet1" static 127.0.0.1
+
+#Changeing Name of Machine
+netdom renamecomputer %COMPUTERNAME% /newname:SRV-1 /reboot:0
+```
+![interface Eth1 SRV-1](Interface-SRV-1.png)
+
+```cmd
+#To disable Firewall
+netsh advfirewall set allprofiles state off
+#If you want to enable it later
+netsh advfirewall set allprofiles state on
+
+```
+![firewall](firewall-SRV-1.png)
+
+Windows 10 (Clinet-1 & Clinet-2):
+
+- Client-1 :
+
+```cmd
+#IP Address
+netsh interface ipv4 set address name="Ethernet1" static 10.10.10.20 255.0.0.0 10.10.10.10
+
+#DNS (address of AD server)
+netsh interface ipv4 set dns name="Ethernet1" static 10.10.10.10
+
+# Changing Name of Machine
+netdom renamecomputer %COMPUTERNAME% /newname:user-2 /reboot:0
+
+#To disable Firewall
+netsh advfirewall set allprofiles state off
+#If you want to enable it later
+netsh advfirewall set allprofiles state on
+```
+- Client-2 :
+
+```cmd
+#IP Address
+netsh interface ipv4 set address name="Ethernet1" static 10.10.10.30 255.0.0.0 10.10.10.10
+
+#DNS (address of AD server)
+netsh interface ipv4 set dns name="Ethernet1" static 10.10.10.10
+
+# Changing Name of Machine
+netdom renamecomputer %COMPUTERNAME% /newname:user-1 /reboot:0
+
+#To disable Firewall
+netsh advfirewall set allprofiles state off
+#If you want to enable it later
+netsh advfirewall set allprofiles state on
+```
+
+Kali Linux : 
+
+```bash
+# IP Address
+sudo ifconfig eth1 10.10.10.40 netmask 255.0.0.0
+# DNS
+sudo ip route add default via 10.10.10.10 dev eth1
+# Activate The Interface 
+sudo ip link set eth1 up
+```
+
+### Testing The connectivity
+
+We have completed the basic configuration of the machines and the necessary settings. Now, it's time to test the connectivity, ensuring it works both from the server to the client and from the client to the server.
+
+* From Kali linux to SRV1 :
+
+The connection is successful between Kali Linux (attacker) and SRVE-1 (Windows Server 2012)
+
+![PING TEST ](kali-To-SRV-1.png)
+
+* From SRV1 To Kali:
+
+It's fine too
+
+![PING TEST ](SRV-1-To-Kali.png)
+
+*<span style="color:red"> Note </span>: If the connectivity fails, check the firewall settings as mentioned earlier.*
+
+You can follow the same steps to check the connectivity between the clients and SRVE-1, as well as with Kali Linux.
+
 
 ## 5. Active Directory Domain Controller Setup
    - Installing the Active Directory Domain Services role.
