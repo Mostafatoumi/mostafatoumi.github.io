@@ -3,19 +3,19 @@ layout: post
 title: Active Directory Mastery - A Guide to Windows Server Setup for Penetration Testing
 date: 2022-11-20 07:00:00 -500
 categories: [Ethical Hacking,AD DC]
-tags: [Active-Directory]
+tags: [Active Directory]
 image: lab_01.png
 img_path: /assets/img/favicons/HackTheBox/ADDC-LAB/
 ---
 
-# Setting Up a Windows Server for Penetration Testing with Active Directory
+**Setting Up a Windows Server for Penetration Testing with Active Directory**
 
-## 1. Introduction
-### Overview of the blog's purpose
+## **<strong><font color="Brown">1. Introduction</font></strong>**
+### **<strong><font color="DarkCyan">Overview of the blog's purpose</font></strong>**
 
 Welcome to the Active Directory Pentesting Blog, your ultimate guide for constructing a robust and secure Windows Server environment crafted specifically for penetration testing. Whether you're a beginner or an experienced professional, this blog aims to offer a comprehensive guide to help you build your own penetration testing lab
 
-### Importance of a controlled environment for penetration testing
+### **<strong><font color="DarkCyan">Importance of a controlled environment for penetration testing</font></strong>**
 In the realm of cybersecurity, the significance of a controlled environment for penetration testing cannot be overstated. A controlled environment provides a safe and isolated space where ethical hackers, security professionals, and enthusiasts can simulate real-world cyber threats without compromising the integrity of live systems. Here's why it matters:
 
 * `Risk Mitigation` :
@@ -37,12 +37,12 @@ Facilitates continuous improvement by refining strategies based on test outcomes
 
 Promotes ethical and responsible hacking, emphasizing constructive use of hacking skills.
 
-## 2. Lab Setup
-### Hardware and software requirements.
+## **<strong><font color="Brown">2. Lab Setup</font></strong>**
+### **<strong><font color="DarkCyan">Hardware and software requirements.</font></strong>**
 
 To establish a robust penetration testing lab with Windows Server 2012 as the Active Directory Domain Controller (AD DC) server, Windows 10 as the client machine, and Kali Linux for attacking, ensure your hardware and software meet the following requirements:
 
-### Hardware Requirements:
+### **<strong><font color="DarkCyan">Hardware Requirements:</font></strong>**
 
 * Server Machine (Windows Server 2012 r2):
 
@@ -69,7 +69,7 @@ To establish a robust penetration testing lab with Windows Server 2012 as the Ac
 |`Storage`| 30 GB or more for the operating system and tools.|
 
 
-### Software Requirements:
+### **<strong><font color="DarkCyan">Software Requirements:</font></strong>**
 
 * Windows Server 2012 R2 : 
 
@@ -84,15 +84,14 @@ You can Download Windows 10 from [here](https://www.microsoft.com/fr-fr/software
 Choose any OS for penetration testing; I recommend using [Kali linux](https://www.kali.org/get-kali/#kali-installer-images)  for optimal results.
 
 
-### Virtualization Platform:
+### **<strong><font color="DarkCyan">Virtualization Platform:</font></strong>**
 
 Choose a virtualization platform like [VMware Workstation Pro](https://www.vmware.com/fr/products/workstation-pro/workstation-pro-evaluation.html) or [VirtualBox](https://www.virtualbox.org/wiki/Downloads) for creating and managing virtual machines.
 
 
+## **<strong><font color="Brown">3. Basic Configuration</font></strong>**
 
-## 3. Basic Configuration
-
-### Configuration script:
+### **<strong><font color="DarkCyan">Configuration script</font></strong>**
 
 Windows Server 2012 r2 :
 
@@ -118,7 +117,7 @@ I think that is clear. Now, let's configure this setup
 
 
 
-### Adding a second interface in VMware
+### **<strong><font color="DarkCyan">Adding Second Interface in VMware</font></strong>**
 After installing Windows Server 2012, Windows 10, and Kali Linux, the next step is to configure the network. Create a second bridged virtual network adapter directed to the second card and add it to the Virtual Machine. Why? This is done to isolate this LAN segment, enabling seamless communication among these machines. The first interface ensures internet connectivity for downloading or upgrading system components.
 
 To add a new network adapter, navigate to `Settings of SRV Machine  > click add` (make sure the first interface is `NAT` for Internet connection) 
@@ -135,7 +134,7 @@ Link This LAN segment with the second interface
 
 *<span style="color:red"> Note </span>: You can follow the same previous steps for all machines.*
 
-### Configuring networking (static IP, DNS settings).
+### Configuring networking (static IP, DNS settings).</font></strong>**
 
 Windows Server 2012 r2 :
 
@@ -212,7 +211,7 @@ sudo ip route add default via 10.10.10.10 dev eth1
 sudo ip link set eth1 up
 ```
 
-### Testing The connectivity
+### Testing The connectivity</font></strong>**
 
 We have completed the basic configuration of the machines and the necessary settings. Now, it's time to test the connectivity, ensuring it works both from the server to the client and from the client to the server.
 
@@ -232,24 +231,28 @@ It's fine too
 
 You can follow the same steps to check the connectivity between the clients and SRVE-1, as well as with Kali Linux.
 
-### Finall Diagram :
+### Finall Diagram :</font></strong>**
 
 ![Lab](diagram_02.png)
 
-## 5. Active Directory Domain Controller Setup
+## **<strong><font color="Brown">5. Active Directory Domain Controller Setup</font></strong>**
+
    - Installing the Active Directory Domain Services role.
    - Promoting the server to a domain controller.
    - Creating the domain and forest.
 
-## 6. User and Group Management
+## **<strong><font color="Brown">6. User and Group Management</font></strong>**
+
    - Adding users and groups to the domain.
    - Assigning appropriate permissions.
 
-## 7. Group Policy Configuration
+## **<strong><font color="Brown">7. Group Policy Configuration</font></strong>**
+
    - Creating and applying Group Policies for security.
    - Implementing password policies.
 
-## 8. Adding Machines to the Domain
+## **<strong><font color="Brown">8. Adding Machines to the Domain</font></strong>**
+
    - Configuring client machines to join the domain.
    - Troubleshooting common issues.
 
