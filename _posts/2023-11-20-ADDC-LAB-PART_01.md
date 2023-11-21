@@ -60,7 +60,7 @@ To establish a robust penetration testing lab with Windows Server 2012 as the Ac
 |`RAM`| 2 GB or more.|
 |`Storage`| 30 GB or more for the operating system and applications.|
 
-* Attacking Machine (Kali Linux):
+* Attacker  Machine (Kali Linux):
 
 | Component  | Specification  |
 | ----------- | ----------- |
