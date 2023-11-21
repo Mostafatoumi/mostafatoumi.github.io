@@ -297,9 +297,10 @@ Now that our `Active Directory` is up and running, let's dive into user and grou
 
 ```powershell
 # Create Users
-New-ADUser -Name "Alice Green" -SamAccountName "alice.green" -UserPrincipalName "alice.green@techsecure.local" -Title "Junior Administrator" -Enabled $true
-New-ADUser -Name "Bob Smith" -SamAccountName "bob.smith" -UserPrincipalName "bob.smith@techsecure.local" -Title "Developer" -Enabled $true
-New-ADUser -Name "Emma White" -SamAccountName "emma.white" -UserPrincipalName "emma.white@techsecure.local" -Title "QA Tester" -Enabled $true
+New-ADUser -Name "Alice Green" -SamAccountName "alice.green" -UserPrincipalName "alice.green@techsecure.local" -Title "Junior Administrator" -Enabled $true -AccountPassword (ConvertTo-SecureString -AsPlainText "Alice@2023!" -Force)
+New-ADUser -Name "Bob Smith" -SamAccountName "bob.smith" -UserPrincipalName "bob.smith@techsecure.local" -Title "Developer" -Enabled $true -AccountPassword (ConvertTo-SecureString -AsPlainText "Bob@2023!" -Force)
+New-ADUser -Name "Emma White" -SamAccountName "emma.white" -UserPrincipalName "emma.white@techsecure.local" -Title "QA Tester" -Enabled $true -AccountPassword (ConvertTo-SecureString -AsPlainText "Emma@2023!" -Force)
+
 ```
 
 ### **<strong><font color="DarkCyan">Organizing Users into Groups :</font></strong>**
