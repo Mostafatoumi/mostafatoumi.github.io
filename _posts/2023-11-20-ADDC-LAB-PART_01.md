@@ -351,6 +351,9 @@ Add-ADGroupMember -Identity "Testers" -Members "emma.white"
 
 # Note  : This is a simplified example. In a real-world scenario, you would replace placeholders with actual file paths and server details.*
 
+# Create Folder C:\SharedProjects
+mkdir C:\SharedProjects
+
 #Assume shared project folder is located at `"C:\SharedProjects"`
 
 $projectFolderPath = "C:\SharedProjects"
@@ -372,6 +375,9 @@ $userManagementPath = "OU=Users,DC=dc,DC=lab,DC=local"
 $adminGroupPath = "CN=Admins,OU=Groups,DC=dc,DC=lab,DC=local"
 ```
 
+The Admins group has full control, and the Testers have read permission on the C:\SharedProjects folder. However, Developers have special permissions. Even though we provide read and write permissions, what does that mean? Each file or folder has 18 types of permissions. Six of those are `basic permissions` visible under the Security tab, while the remaining 12 are `advanced permissions` exposed in advanced mode only. These advanced permissions are set automatically. Any modifications to the advanced permissions are flagged by a tick mark in the `Special Permissions` box.
+
+![folder dev perm](shared_folder_perm.png)
 ### **<strong><font color="DarkCyan">Real-world Application :</font></strong>**
 
 **Scenario:* Alice, a Junior Administrator, needs to create user accounts for new developers joining the team. She adds them to the Developers group, granting them the necessary permissions on the file server. Meanwhile, Bob, a Developer, requires access to project-related resources, which is facilitated through his group membership.*
