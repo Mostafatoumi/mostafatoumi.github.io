@@ -366,8 +366,8 @@ icacls $projectFolderPath /grant "$($testersGroup.Name):(R)"
 
 # Assign Active Directory Permissions
 # Assume AD paths for user management and admin group
-$userManagementPath = "OU=Users,DC=lab,DC=local"
-$adminGroupPath = "CN=Admins,OU=Groups,DC=lab,DC=local"
+$userManagementPath = "OU=Users,DC=dc,DC=lab,DC=local"
+$adminGroupPath = "CN=Admins,OU=Groups,DC=dc,DC=lab,DC=local"
 ```
 
 ### **<strong><font color="DarkCyan">Real-world Application :</font></strong>**
