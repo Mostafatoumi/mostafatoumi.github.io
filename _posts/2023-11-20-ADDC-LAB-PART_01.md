@@ -21,7 +21,7 @@ In the realm of cybersecurity, the significance of a controlled environment for 
 * `Risk Mitigation` :
 
 Enables safe exploration without the risk of damaging live systems.
-* `Realistic Scenarios` :
+* Realistic Scenarios:
 
 Mimics real-world conditions, providing a close-to-reality testing environment.
 * `Skill Development` :
@@ -60,7 +60,7 @@ To establish a robust penetration testing lab with Windows Server 2012 as the Ac
 |`RAM`| 2 GB or more.|
 |`Storage`| 30 GB or more for the operating system and applications.|
 
-* Attacker  Machine (Kali Linux):
+* Attacking Machine (Kali Linux):
 
 | Component  | Specification  |
 | ----------- | ----------- |
@@ -75,11 +75,11 @@ To establish a robust penetration testing lab with Windows Server 2012 as the Ac
 
 You can Download ISO of Windows SERVER 2012 r1 from  [here](https://info.microsoft.com/ww-landing-windows-server-2012-R2.html?lcid=fr) 
 
-* Windows 10:
+* Windows 10 :
 
 You can Download Windows 10 from [here](https://www.microsoft.com/fr-fr/software-download/windows10) 
 
-* Kali Linux:
+* Kali Linux :
 
 Choose any OS for penetration testing; I recommend using [Kali linux](https://www.kali.org/get-kali/#kali-installer-images)  for optimal results.
 
@@ -134,7 +134,7 @@ Link This LAN segment with the second interface
 
 *<span style="color:red"> Note </span>: You can follow the same previous steps for all machines.*
 
-### Configuring networking (static IP, DNS settings).</font></strong>**
+### **<strong><font color="DarkCyan">Configuring networking (static IP, DNS settings).</font></strong>**
 
 Windows Server 2012 r2 :
 
@@ -175,7 +175,7 @@ netsh interface ipv4 set address name="Ethernet1" static 10.10.10.20 255.0.0.0 1
 netsh interface ipv4 set dns name="Ethernet1" static 10.10.10.10
 
 # Changing Name of Machine
-netdom renamecomputer %COMPUTERNAME% /newname:user-2 /reboot:0
+netdom renamecomputer %COMPUTERNAME% /newname:user-1 /reboot:0
 
 #To disable Firewall
 netsh advfirewall set allprofiles state off
@@ -192,7 +192,7 @@ netsh interface ipv4 set address name="Ethernet1" static 10.10.10.30 255.0.0.0 1
 netsh interface ipv4 set dns name="Ethernet1" static 10.10.10.10
 
 # Changing Name of Machine
-netdom renamecomputer %COMPUTERNAME% /newname:user-1 /reboot:0
+netdom renamecomputer %COMPUTERNAME% /newname:user-2 /reboot:0
 
 #To disable Firewall
 netsh advfirewall set allprofiles state off
@@ -237,14 +237,148 @@ You can follow the same steps to check the connectivity between the clients and 
 
 ## **<strong><font color="Brown">5. Active Directory Domain Controller Setup</font></strong>**
 
-   - Installing the Active Directory Domain Services role.
-   - Promoting the server to a domain controller.
-   - Creating the domain and forest.
+### Installing the Active Directory Domain Services role.
+
+While Windows Server 2012 provides a graphical user interface (GUI) method for adding features such as the Active Directory module, we'll take a detour and explore the command-line prowess of PowerShell. Why? Because embracing PowerShell not only enhances your scripting skills but also offers a more efficient and scalable way to manage and automate tasks. So, let's skip the GUI this time and dive into the powerful world of PowerShell for our Active Directory module installation.
+
+| Component  | Specification  |
+| ----------- | ----------- |
+|`Domain Name`|DC.LAB.LOCAL|
+|`Password` |Pen_lab@2023!|
+
+- **Open PowerShell as Administrator**
+
+Right-click on the PowerShell icon and choose `Run as Administrator` to ensure elevated privileges.
+
+- **Install the Active Directory Module**
+
+```powershell
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+```
+![install AD ](AD_installation.png)
+
+- **Creating the domain and forest.**
+
+So, the domain name will be `dc.lab.local`, and the password is `Pen_lab@2023!`. The domain installation process may take from 2 to 5 minutes. During the installation, PowerShell will prompt you to restart the machine. Choose `Y` or `Yes` and wait until the installation completes and the machine reboots
+
+```powershell
+Install-ADDSForest -DomainName dc.lab.local -InstallDNS
+```
+
+![creating domain](creating_domain.png)
+
+After the machine reboots, the name of our domain will appear in `Server Manager` under `Local Server` :
+
+![info domain](info_domain.png)
+
+checking by `Get-ADdoamin` command, This will show you information about your new `Domain` :
+
+![Get-addoamin](get-addomain.png)
+
+Now, everything looks great. We have successfully created our domain `dc.lab.local`. Let's move on to the user and group management section.
 
 ## **<strong><font color="Brown">6. User and Group Management</font></strong>**
 
-   - Adding users and groups to the domain.
-   - Assigning appropriate permissions.
+### **Adding users and groups to the domain.**
+
+Now that our `Active Directory` is up and running, let's dive into user and group management—a crucial aspect of network security. In this scenario, imagine we're setting up a lab for a fictional organization called `"TechSecure Corp."`
+
+### **User Creation :**
+
+   - **`User 1` : Alice Green**
+      - *`Username` :* alice.green
+      - *`Role` :* Junior Administrator
+   - **`User 2` : Bob Smith**
+      - *`Username` :* bob.smith
+      - *`Role` :* Developer
+   - **`User 3`: Emma White**
+      - *`Username` :* emma.white
+      - *`Role` :* QA Tester
+
+```powershell
+# Create Users
+New-ADUser -Name "Alice Green" -SamAccountName "alice.green" -UserPrincipalName "alice.green@techsecure.local" -Title "Junior Administrator" -Enabled $true
+New-ADUser -Name "Bob Smith" -SamAccountName "bob.smith" -UserPrincipalName "bob.smith@techsecure.local" -Title "Developer" -Enabled $true
+New-ADUser -Name "Emma White" -SamAccountName "emma.white" -UserPrincipalName "emma.white@techsecure.local" -Title "QA Tester" -Enabled $true
+```
+
+### **Organizing Users into Groups :**
+
+   - **Group 1 : Admins**
+      - *`Members` :* Alice Green
+      - *`Permissions` :* Full administrative access to servers and Active Directory.
+   - **Group 2 : Developers**
+      - *`Members` :* Bob Smith
+      - *`Permissions` :* Access to development resources and shared project folders.
+   - **Group 3 : Testers**
+      - *`Members` :* Emma White
+      - *`Permissions` :* Limited access to testing environments and relevant resources.
+
+```powershell
+# Create Groups
+New-ADGroup -Name "Admins" -GroupScope Global -GroupCategory Security
+New-ADGroup -Name "Developers" -GroupScope Global -GroupCategory Security
+New-ADGroup -Name "Testers" -GroupScope Global -GroupCategory Security
+```
+
+```powershell
+# Add Users to Groups
+Add-ADGroupMember -Identity "Admins" -Members "alice.green"
+Add-ADGroupMember -Identity "Developers" -Members "bob.smith"
+Add-ADGroupMember -Identity "Testers" -Members "emma.white"
+```
+
+### Assigning Appropriate Permissions :
+
+#### **File Server Permissions :**
+   - **Shared Project Folder :**
+      - *`Group Access` :* Developers have read/write access; Testers have read-only access.
+   - **Admin Access :**
+      - *`Administrators` :* Full control over shared resources.
+
+#### **Active Directory Permissions :**
+   - **Admin Group:**
+      - *`Admins Group` :* Full control over Active Directory settings.
+   - **User Management :**
+      - *`Developers Group`:* Limited user management capabilities for their team members.
+      - *`Testers Group`:* Basic user information access for their team members.
+
+
+
+```powershell
+
+# Note  : This is a simplified example. In a real-world scenario, you would replace placeholders with actual file paths and server details.*
+
+#Assume shared project folder is located at `"C:\SharedProjects"`
+
+$projectFolderPath = "C:\SharedProjects"
+$adminsGroup = Get-ADGroup -Filter {Name -eq "Admins"}
+$developersGroup = Get-ADGroup -Filter {Name -eq "Developers"}
+$testersGroup = Get-ADGroup -Filter {Name -eq "Testers"}
+
+# Grant permissions on the shared project folder
+# Administrators have full control
+icacls $projectFolderPath /grant "$($adminsGroup.Name):(F)"
+# Developers have read/write access
+icacls $projectFolderPath /grant "$($developersGroup.Name):(R,W)"
+# Testers have read-only access
+icacls $projectFolderPath /grant "$($testersGroup.Name):(R)"
+
+# Assign Active Directory Permissions
+# Assume AD paths for user management and admin group
+$userManagementPath = "OU=Users,DC=lab,DC=local"
+$adminGroupPath = "CN=Admins,OU=Groups,DC=lab,DC=local"
+```
+
+### Real-world Application:
+
+**Scenario:* Alice, a Junior Administrator, needs to create user accounts for new developers joining the team. She adds them to the Developers group, granting them the necessary permissions on the file server. Meanwhile, Bob, a Developer, requires access to project-related resources, which is facilitated through his group membership.*
+
+This scenario provides a glimpse into how user and group management in Active Directory plays out in a practical setting. Stay tuned as we explore the dynamic realm of `Group Policy Configuration` in the upcoming blog post! 
+
+
+
+
 
 ## **<strong><font color="Brown">7. Group Policy Configuration</font></strong>**
 
