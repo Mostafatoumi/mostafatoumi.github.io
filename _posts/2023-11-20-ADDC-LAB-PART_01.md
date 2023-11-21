@@ -27,7 +27,7 @@ Mimics real-world conditions, providing a close-to-reality testing environment.
 * `Skill Development` :
 
 Offers a hands-on learning ground for system administration, network security, and ethical hacking.
-* Confidentiality and Compliance:
+* `Confidentiality and Compliance` :
 
 Protects sensitive data, ensuring compliance with regulatory requirements.
 * `Iterative Testing` :
@@ -211,7 +211,7 @@ sudo ip route add default via 10.10.10.10 dev eth1
 sudo ip link set eth1 up
 ```
 
-### Testing The connectivity</font></strong>**
+### **<strong><font color="DarkCyan">Testing The connectivity</font></strong>**
 
 We have completed the basic configuration of the machines and the necessary settings. Now, it's time to test the connectivity, ensuring it works both from the server to the client and from the client to the server.
 
@@ -231,7 +231,7 @@ It's fine too
 
 You can follow the same steps to check the connectivity between the clients and SRVE-1, as well as with Kali Linux.
 
-### Finall Diagram :</font></strong>**
+### **<strong><font color="DarkCyan">Finall Diagram :</font></strong>**
 
 ![Lab](diagram_02.png)
 
