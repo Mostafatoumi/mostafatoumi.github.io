@@ -175,7 +175,7 @@ netsh interface ipv4 set address name="Ethernet1" static 10.10.10.20 255.0.0.0 1
 netsh interface ipv4 set dns name="Ethernet1" static 10.10.10.10
 
 # Changing Name of Machine
-Rename-Computer -NewName user-1 -Restart
+netdom renamecomputer %COMPUTERNAME% /newname:user-1 /reboot:0
 
 #To disable Firewall
 netsh advfirewall set allprofiles state off
@@ -192,7 +192,7 @@ netsh interface ipv4 set address name="Ethernet1" static 10.10.10.30 255.0.0.0 1
 netsh interface ipv4 set dns name="Ethernet1" static 10.10.10.10
 
 # Changing Name of Machine
-Rename-Computer -NewName user-1 -Restart
+netdom renamecomputer %COMPUTERNAME% /newname:user-2 /reboot:0
 
 #To disable Firewall
 netsh advfirewall set allprofiles state off
@@ -235,7 +235,7 @@ You can follow the same steps to check the connectivity between the clients and 
 
 ![Lab](diagram_02.png)
 
-## **<strong><font color="Brown">5. Active Directory Domain Controller Setup</font></strong>**
+## **<strong><font color="Brown">4. Active Directory Domain Controller Setup</font></strong>**
 
 ### **<strong><font color="DarkCyan">Installing the Active Directory Domain Services role :</font></strong>**
 
@@ -277,7 +277,7 @@ checking by `Get-ADdoamin` command, This will show you information about your ne
 
 Now, everything looks great. We have successfully created our domain `dc.lab.local`. Let's move on to the user and group management section.
 
-## **<strong><font color="Brown">6. User and Group Management</font></strong>**
+## **<strong><font color="Brown">5. User and Group Management</font></strong>**
 
 ### **<strong><font color="DarkCyan">Adding users and groups to the domain :</font></strong>**
 
@@ -388,12 +388,122 @@ This scenario provides a glimpse into how user and group management in Active Di
 
 ![Diagram 2](diagram_03.png)
 
+## **<strong><font color="Brown">6. Move Users To an Organizational Unit</font></strong>**
 
+An `OU` is a container within a Microsoft Windows Active Directory (AD) domain that can hold `users`, `groups` and `computers`. It is the smallest unit to which an administrator can assign `Group Policy settings` or account permissions.
+
+
+To streamline the application of Group Policy Objects (`GPO`), we need to create two Organizational Units (`OUs`), one for developers and another for QA Tester users. Let's proceed with this configuration.
+
+```powershell
+# Create Developers OU
+New-ADOrganizationalUnit -Name "Developers" -Path "DC=dc,DC=lab,DC=local"
+# Create QA Testers OU
+New-ADOrganizationalUnit -Name "QA Testers" -Path "DC=dc,DC=lab,DC=local"
+```
+With the OUs added, our next step is to move users into their respective OUs.
+
+```powershell
+# Moving emma.white user to QA Testers OU
+ Get-ADUser -Identity "emma.white" | Move-ADObject -TargetPath "OU=QA Testers,DC=dc,DC=lab,DC=local"
+ # Move bob.smith user to Developers OU
+ Get-ADUser -Identity "bob.smith" | Move-ADObject -TargetPath "OU=Developers,DC=dc,DC=lab,DC=local"
+```
+We have successfully added users to OUs. Let's proceed to the Group Policy Objects (`GPO`) section.
+![add user to ou](add_users2Ou.png)
 
 ## **<strong><font color="Brown">7. Group Policy Configuration</font></strong>**
 
-   - Creating and applying Group Policies for security.
-   - Implementing password policies.
+As we continue our journey through `Active Directory mastery`, we arrive at the fascinating realm of `Group Policy Configuration`. In this scenario, we're tasked with enhancing the security posture of `TechSecure Corp`, our fictional organization.
+
+
+
+### **<strong><font color="DarkCyan">Creating and Applying Group Policies for Security : </font></strong>**
+
+
+#### **Password Complexity Policy :**
+
+Strengthen password security to thwart unauthorized access
+
+| Syntax      | Description |
+| ----------- | ----------- |
+|`Group Policy Setting`|1.Creating a Group Policy Object (GPO) named `PasswordPolicy`.|
+||2.Configuring the password complexity settings :|
+||- Minimum password length: 10 characters.|
+||- Require at least one uppercase letter, one lowercase letter, one digit, and one special character.|
+|`Application`| Apply this `GPO` to the entire domain to enforce consistent password policies.|
+
+```powershell
+# Creating Password Complexity Policy GPO
+New-GPO -Name "PasswordPolicy" 
+$PasswordPolicyGPO = Get-GPO -Name "PasswordPolicy"
+Set-GPRegistryValue -Guid $PasswordPolicyGPO.Id -Key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -ValueName "MaxPasswordAge" -Type DWord -Value 0
+
+# Link the GPO to the domain
+$domainName = "dc.lab.local"
+$gpoName = "PasswordPolicy"
+$gpo = Get-GPO -Name $gpoName
+New-GPLink -Name $gpo.DisplayName -Target $domainName -LinkEnabled Yes
+
+```
+
+#### **Account Lockout Policy:**
+
+Mitigate the risk of `brute force attacks` by implementing account lockout measures.
+
+| Syntax      | Description |
+| ----------- | ----------- |
+|`Group Policy Setting`|1. Create a GPO named `AccountLockoutPolicy`.|
+||2. Set account lockout threshold to 3 invalid login attempts, with a lockout duration of `15 minutes`.|
+|`Application`| Apply this `GPO` to the domain controllers to safeguard against unauthorized access attempts.|
+
+```powershell
+# Creating Account Lockout Policy GPO
+New-GPO -Name "AccountLockoutPolicy"
+$AccountLockoutPolicyGPO = Get-GPO -Name "AccountLockoutPolicy"
+Set-GPRegistryValue -Guid $AccountLockoutPolicyGPO.Id -Key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -ValueName "LockoutDuration" -Type DWord -Value 900
+
+# Linking GPO to specific OUs
+$ouDistinguishedName = "OU=Developers,DC=dc,DC=lab,DC=local"
+$gpoName = "AccountLockoutPolicy"
+$gpo = Get-GPO -Name $gpoName
+New-GPLink -Name $gpo.DisplayName -Target $ouDistinguishedName -LinkEnabled Yes
+
+```
+
+#### **Restricting Command-Line Access :**
+
+Employees in the `RestrictedUsers` group should be denied access to cmd and PowerShell. So we need to Limit command-line access for certain users to prevent misuse.
+
+| Syntax      | Description |
+| ----------- | ----------- |
+|`Group Policy Setting`|1.Creating a GPO named `CmdPowerShellRestriction`|
+||2.Utilizing the Software Restriction Policies under Windows Settings to create a path rule denying execution for `cmd.exe` and `powershell.exe` for the `RestrictedUsers` group.|
+|`Application`|Applying this `GPO` specifically to the `RestrictedUsers` group to enforce the restriction.|
+
+```powershell
+# Creating Restricting Command-Line Access GPO
+New-GPO -Name "CmdPowerShellRestriction" 
+$CmdPowerShellRestrictionGPO = Get-GPO -Name "CmdPowerShellRestriction"
+
+Set-GPRegistryValue -Guid $CmdPowerShellRestrictionGPO.Id -Key "HKLM\SOFTWARE\Policies\Microsoft\Windows\Safer\CodeIdentifiers\0\Paths" -ValueName "C:\Windows\System32\cmd.exe" -Type DWord -Value 0x4
+Set-GPRegistryValue -Guid $CmdPowerShellRestrictionGPO.Id -Key "HKLM\SOFTWARE\Policies\Microsoft\Windows\Safer\CodeIdentifiers\0\Paths" -ValueName "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Type DWord -Value 0x4
+
+# Linking GPO to the "QA testers" OU
+$OUDistinguishedName = "OU=QA testers,DC=dc,DC=lab,DC=local"  # Replace with your actual OU
+New-GPLink -Name "CmdPowerShellRestrictionLink" -Target $OUDistinguishedName -LinkEnabled Yes -GPOName "CmdPowerShellRestriction"
+```
+![GPO](GPO.png)
+
+To force a `Group Policy update` on a local machine, you can use the following command:
+
+```powershell
+gpupdate /force
+# Or 
+Invoke-GPUpdate -Computer ComputerName -Force
+```
+*<span style="color:red"> Note </span>: Ensure to perform this step on every local machine (both clients) to update the Group Policy Objects (GPO) promptly.*
+
 
 ## **<strong><font color="Brown">8. Adding Machines to the Domain</font></strong>**
 
