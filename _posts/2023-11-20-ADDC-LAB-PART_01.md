@@ -21,7 +21,7 @@ In the realm of cybersecurity, the significance of a controlled environment for 
 * `Risk Mitigation` :
 
 Enables safe exploration without the risk of damaging live systems.
-* Realistic Scenarios:
+* `Realistic Scenarios` :
 
 Mimics real-world conditions, providing a close-to-reality testing environment.
 * `Skill Development` :
