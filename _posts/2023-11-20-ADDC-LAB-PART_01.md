@@ -10,12 +10,12 @@ img_path: /assets/img/favicons/HackTheBox/ADDC-LAB/
 
 **Setting Up a Windows Server for Penetration Testing with Active Directory**
 
-## **<strong><font color="Brown">1. Introduction</font></strong>**
-### **<strong><font color="DarkCyan">Overview of the blog's purpose</font></strong>**
+## **<strong><font color="Brown">1. Introduction </font></strong>**
+### **<strong><font color="DarkCyan">Overview of the blog's purpose :</font></strong>**
 
 Welcome to the Active Directory Pentesting Blog, your ultimate guide for constructing a robust and secure Windows Server environment crafted specifically for penetration testing. Whether you're a beginner or an experienced professional, this blog aims to offer a comprehensive guide to help you build your own penetration testing lab
 
-### **<strong><font color="DarkCyan">Importance of a controlled environment for penetration testing</font></strong>**
+### **<strong><font color="DarkCyan">Importance of a controlled environment for penetration testing :</font></strong>**
 In the realm of cybersecurity, the significance of a controlled environment for penetration testing cannot be overstated. A controlled environment provides a safe and isolated space where ethical hackers, security professionals, and enthusiasts can simulate real-world cyber threats without compromising the integrity of live systems. Here's why it matters:
 
 * `Risk Mitigation` :
@@ -38,7 +38,7 @@ Facilitates continuous improvement by refining strategies based on test outcomes
 Promotes ethical and responsible hacking, emphasizing constructive use of hacking skills.
 
 ## **<strong><font color="Brown">2. Lab Setup</font></strong>**
-### **<strong><font color="DarkCyan">Hardware and software requirements.</font></strong>**
+### **<strong><font color="DarkCyan">Hardware and software requirements :</font></strong>**
 
 To establish a robust penetration testing lab with Windows Server 2012 as the Active Directory Domain Controller (AD DC) server, Windows 10 as the client machine, and Kali Linux for attacking, ensure your hardware and software meet the following requirements:
 
@@ -69,7 +69,7 @@ To establish a robust penetration testing lab with Windows Server 2012 as the Ac
 |`Storage`| 30 GB or more for the operating system and tools.|
 
 
-### **<strong><font color="DarkCyan">Software Requirements:</font></strong>**
+### **<strong><font color="DarkCyan">Software Requirements :</font></strong>**
 
 * Windows Server 2012 R2 : 
 
@@ -84,14 +84,14 @@ You can Download Windows 10 from [here](https://www.microsoft.com/fr-fr/software
 Choose any OS for penetration testing; I recommend using [Kali linux](https://www.kali.org/get-kali/#kali-installer-images)  for optimal results.
 
 
-### **<strong><font color="DarkCyan">Virtualization Platform:</font></strong>**
+### **<strong><font color="DarkCyan">Virtualization Platform :</font></strong>**
 
 Choose a virtualization platform like [VMware Workstation Pro](https://www.vmware.com/fr/products/workstation-pro/workstation-pro-evaluation.html) or [VirtualBox](https://www.virtualbox.org/wiki/Downloads) for creating and managing virtual machines.
 
 
-## **<strong><font color="Brown">3. Basic Configuration</font></strong>**
+## **<strong><font color="Brown">3. Basic Configuration </font></strong>**
 
-### **<strong><font color="DarkCyan">Configuration script</font></strong>**
+### **<strong><font color="DarkCyan">Configuration script :</font></strong>**
 
 Windows Server 2012 r2 :
 
@@ -117,7 +117,7 @@ I think that is clear. Now, let's configure this setup
 
 
 
-### **<strong><font color="DarkCyan">Adding Second Interface in VMware</font></strong>**
+### **<strong><font color="DarkCyan">Adding Second Interface in VMware :</font></strong>**
 After installing Windows Server 2012, Windows 10, and Kali Linux, the next step is to configure the network. Create a second bridged virtual network adapter directed to the second card and add it to the Virtual Machine. Why? This is done to isolate this LAN segment, enabling seamless communication among these machines. The first interface ensures internet connectivity for downloading or upgrading system components.
 
 To add a new network adapter, navigate to `Settings of SRV Machine  > click add` (make sure the first interface is `NAT` for Internet connection) 
@@ -211,7 +211,7 @@ sudo ip route add default via 10.10.10.10 dev eth1
 sudo ip link set eth1 up
 ```
 
-### **<strong><font color="DarkCyan">Testing The connectivity</font></strong>**
+### **<strong><font color="DarkCyan">Testing The connectivity :</font></strong>**
 
 We have completed the basic configuration of the machines and the necessary settings. Now, it's time to test the connectivity, ensuring it works both from the server to the client and from the client to the server.
 
@@ -231,13 +231,13 @@ It's fine too
 
 You can follow the same steps to check the connectivity between the clients and SRVE-1, as well as with Kali Linux.
 
-### **<strong><font color="DarkCyan">Finall Diagram :</font></strong>**
+### **<strong><font color="DarkCyan">Diagram :</font></strong>**
 
 ![Lab](diagram_02.png)
 
 ## **<strong><font color="Brown">5. Active Directory Domain Controller Setup</font></strong>**
 
-### Installing the Active Directory Domain Services role.
+### **<strong><font color="DarkCyan">Installing the Active Directory Domain Services role :</font></strong>**
 
 While Windows Server 2012 provides a graphical user interface (GUI) method for adding features such as the Active Directory module, we'll take a detour and explore the command-line prowess of PowerShell. Why? Because embracing PowerShell not only enhances your scripting skills but also offers a more efficient and scalable way to manage and automate tasks. So, let's skip the GUI this time and dive into the powerful world of PowerShell for our Active Directory module installation.
 
@@ -279,11 +279,11 @@ Now, everything looks great. We have successfully created our domain `dc.lab.loc
 
 ## **<strong><font color="Brown">6. User and Group Management</font></strong>**
 
-### **Adding users and groups to the domain.**
+### **<strong><font color="DarkCyan">**Adding users and groups to the domain :**</font></strong>**
 
 Now that our `Active Directory` is up and running, let's dive into user and group management—a crucial aspect of network security. In this scenario, imagine we're setting up a lab for a fictional organization called `"TechSecure Corp."`
 
-### **User Creation :**
+### **<strong><font color="DarkCyan">**User Creation :**</font></strong>**
 
    - **`User 1` : Alice Green**
       - *`Username` :* alice.green
@@ -302,7 +302,7 @@ New-ADUser -Name "Bob Smith" -SamAccountName "bob.smith" -UserPrincipalName "bob
 New-ADUser -Name "Emma White" -SamAccountName "emma.white" -UserPrincipalName "emma.white@techsecure.local" -Title "QA Tester" -Enabled $true
 ```
 
-### **Organizing Users into Groups :**
+### **<strong><font color="DarkCyan">**Organizing Users into Groups :**</font></strong>**
 
    - **Group 1 : Admins**
       - *`Members` :* Alice Green
@@ -328,15 +328,15 @@ Add-ADGroupMember -Identity "Developers" -Members "bob.smith"
 Add-ADGroupMember -Identity "Testers" -Members "emma.white"
 ```
 
-### Assigning Appropriate Permissions :
+### **<strong><font color="DarkCyan">Assigning Appropriate Permissions :</font></strong>**
 
-#### **File Server Permissions :**
+##### **File Server Permissions :**
    - **Shared Project Folder :**
       - *`Group Access` :* Developers have read/write access; Testers have read-only access.
    - **Admin Access :**
       - *`Administrators` :* Full control over shared resources.
 
-#### **Active Directory Permissions :**
+##### **Active Directory Permissions :**
    - **Admin Group:**
       - *`Admins Group` :* Full control over Active Directory settings.
    - **User Management :**
@@ -370,13 +370,15 @@ $userManagementPath = "OU=Users,DC=lab,DC=local"
 $adminGroupPath = "CN=Admins,OU=Groups,DC=lab,DC=local"
 ```
 
-### Real-world Application:
+### **<strong><font color="DarkCyan">Real-world Application :</font></strong>**
 
 **Scenario:* Alice, a Junior Administrator, needs to create user accounts for new developers joining the team. She adds them to the Developers group, granting them the necessary permissions on the file server. Meanwhile, Bob, a Developer, requires access to project-related resources, which is facilitated through his group membership.*
 
 This scenario provides a glimpse into how user and group management in Active Directory plays out in a practical setting. Stay tuned as we explore the dynamic realm of `Group Policy Configuration` in the upcoming blog post! 
 
+### **<strong><font color="DarkCyan">Diagram :</font></strong>**
 
+![Diagram 2](diagram_03.png)
 
 
 
