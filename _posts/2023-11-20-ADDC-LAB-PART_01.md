@@ -3,7 +3,7 @@ layout: post
 title: Active Directory Mastery - A Guide to Windows Server Setup for Penetration Testing
 date: 2022-11-20 07:00:00 -500
 categories: [Ethical Hacking,AD DC]
-tags: [Active Directory]
+tags: [Active-Directory]
 image: lab_01.png
 img_path: /assets/img/favicons/HackTheBox/ADDC-LAB/
 ---
@@ -18,22 +18,22 @@ Welcome to the Active Directory Pentesting Blog, your ultimate guide for constru
 ### Importance of a controlled environment for penetration testing
 In the realm of cybersecurity, the significance of a controlled environment for penetration testing cannot be overstated. A controlled environment provides a safe and isolated space where ethical hackers, security professionals, and enthusiasts can simulate real-world cyber threats without compromising the integrity of live systems. Here's why it matters:
 
-* Risk Mitigation:
+* `Risk Mitigation` :
 
 Enables safe exploration without the risk of damaging live systems.
 * Realistic Scenarios:
 
 Mimics real-world conditions, providing a close-to-reality testing environment.
-* Skill Development:
+* `Skill Development` :
 
 Offers a hands-on learning ground for system administration, network security, and ethical hacking.
 * Confidentiality and Compliance:
 
 Protects sensitive data, ensuring compliance with regulatory requirements.
-* Iterative Testing:
+* `Iterative Testing` :
 
 Facilitates continuous improvement by refining strategies based on test outcomes.
-* Ethical Practices:
+* `Ethical Practices` :
 
 Promotes ethical and responsible hacking, emphasizing constructive use of hacking skills.
 
@@ -46,37 +46,38 @@ To establish a robust penetration testing lab with Windows Server 2012 as the Ac
 
 * Server Machine (Windows Server 2012 r2):
 
-`Processor`: Dual-core processor or higher.
-
-`RAM`: 2 GB or more.
-
-`Storage`: 50 GB or more for the operating system and additional space for virtual machines.
+| Component  | Specification  |
+| ----------- | ----------- |
+|`Processor`| Dual-core processor or higher.|
+|`RAM`| 2 GB or more.|
+|`Storage`| 50 GB or more for the operating system and additional space for virtual machines.|
 
 * Client Machine (Windows 10):
 
-`Processor`: Dual-core processor or higher.
-
-`RAM`: 2 GB or more.
-
-`Storage`: 30 GB or more for the operating system and applications.
+| Component  | Specification  |
+| ----------- | ----------- |
+|`Processor`| Dual-core processor or higher.|
+|`RAM`| 2 GB or more.|
+|`Storage`| 30 GB or more for the operating system and applications.|
 
 * Attacking Machine (Kali Linux):
 
-`Processor`: Dual-core processor or higher.
-
-`RAM`: 4 GB or more.
-`Storage`: 30 GB or more for the operating system and tools.
+| Component  | Specification  |
+| ----------- | ----------- |
+|`Processor`| Dual-core processor or higher.|
+| `RAM` | 2 GB or more.|
+|`Storage`| 30 GB or more for the operating system and tools.|
 
 
 ### Software Requirements:
 
 * Windows Server 2012 R2 : 
 
-You can Download ISO of windows SERVER 2012 r1 from  [here](https://info.microsoft.com/ww-landing-windows-server-2012-R2.html?lcid=fr) 
+You can Download ISO of Windows SERVER 2012 r1 from  [here](https://info.microsoft.com/ww-landing-windows-server-2012-R2.html?lcid=fr) 
 
 * Windows 10:
 
-You can Download windowd 10 from [here](https://www.microsoft.com/fr-fr/software-download/windows10) 
+You can Download Windows 10 from [here](https://www.microsoft.com/fr-fr/software-download/windows10) 
 
 * Kali Linux:
 
@@ -93,23 +94,21 @@ Choose a virtualization platform like [VMware Workstation Pro](https://www.vmwar
 
 ### Configuration script:
 
-windows server 2012 r2 :
+Windows Server 2012 r2 :
 
-`MACHINE NAME` : SRV-1
+| Component  | Specification  |
+| ----------- | ----------- |
+| `MACHINE NAME` | SRV-1 |
+| `IPv4 Address` | 10.10.10.10/8 |
+|`Mask`|255.0.0.0|
+|`DNS`|127.0.0.1 (We will make changes to this in part 2 as we need to create a DNS server)|
+|`ANTIVIRUS`|<span style="color:green">ENABLE </span>|
+|`FIREWALL`|<span style="color:red">DISABLE</span>|
 
-`IPv4 Address` : 10.10.10.10/8
-
-`Mask`         : 255.0.0.0
-
-`DNS`          : 127.0.0.1 (We will make changes to this in part 2 as we need to create a DNS server)
-
-`ANTIVIRUS` : ENABLE
-
-`FIREWALL`  : DISABLE 
 
 Why disable the firewall? Because the firewall might block ICMP connections between the host server and the client, as well as the client to the server. Alternatively, you would have to allow these ports through the firewall settings
 
-windows 10 (clients) and kali linux :
+Windows 10 (clients) and kali linux :
 
 For simplicity, we will assign the following IP addresses: Client 1 - 10.10.10.20, Client 2 - 10.10.10.30, and Kali Linux - 10.10.10.40
 
@@ -202,7 +201,7 @@ netsh advfirewall set allprofiles state off
 netsh advfirewall set allprofiles state on
 ```
 
-Kali Linux : 
+* Kali Linux : 
 
 ```bash
 # IP Address
@@ -233,6 +232,9 @@ It's fine too
 
 You can follow the same steps to check the connectivity between the clients and SRVE-1, as well as with Kali Linux.
 
+### Finall Diagram :
+
+![Lab](diagram_02.png)
 
 ## 5. Active Directory Domain Controller Setup
    - Installing the Active Directory Domain Services role.
