@@ -175,7 +175,7 @@ netsh interface ipv4 set address name="Ethernet1" static 10.10.10.20 255.0.0.0 1
 netsh interface ipv4 set dns name="Ethernet1" static 10.10.10.10
 
 # Changing Name of Machine
-netdom renamecomputer %COMPUTERNAME% /newname:user-1 /reboot:0
+Rename-Computer -NewName user-1 -Restart
 
 #To disable Firewall
 netsh advfirewall set allprofiles state off
@@ -192,7 +192,7 @@ netsh interface ipv4 set address name="Ethernet1" static 10.10.10.30 255.0.0.0 1
 netsh interface ipv4 set dns name="Ethernet1" static 10.10.10.10
 
 # Changing Name of Machine
-netdom renamecomputer %COMPUTERNAME% /newname:user-2 /reboot:0
+Rename-Computer -NewName user-1 -Restart
 
 #To disable Firewall
 netsh advfirewall set allprofiles state off
