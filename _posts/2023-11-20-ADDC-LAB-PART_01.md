@@ -279,11 +279,11 @@ Now, everything looks great. We have successfully created our domain `dc.lab.loc
 
 ## **<strong><font color="Brown">6. User and Group Management</font></strong>**
 
-### **<strong><font color="DarkCyan">**Adding users and groups to the domain :**</font></strong>**
+### **<strong><font color="DarkCyan">Adding users and groups to the domain :</font></strong>**
 
 Now that our `Active Directory` is up and running, let's dive into user and group management—a crucial aspect of network security. In this scenario, imagine we're setting up a lab for a fictional organization called `"TechSecure Corp."`
 
-### **<strong><font color="DarkCyan">**User Creation :**</font></strong>**
+### **<strong><font color="DarkCyan">User Creation :</font></strong>**
 
    - **`User 1` : Alice Green**
       - *`Username` :* alice.green
@@ -302,7 +302,7 @@ New-ADUser -Name "Bob Smith" -SamAccountName "bob.smith" -UserPrincipalName "bob
 New-ADUser -Name "Emma White" -SamAccountName "emma.white" -UserPrincipalName "emma.white@techsecure.local" -Title "QA Tester" -Enabled $true
 ```
 
-### **<strong><font color="DarkCyan">**Organizing Users into Groups :**</font></strong>**
+### **<strong><font color="DarkCyan">Organizing Users into Groups :</font></strong>**
 
    - **Group 1 : Admins**
       - *`Members` :* Alice Green
