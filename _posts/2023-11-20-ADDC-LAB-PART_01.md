@@ -329,6 +329,7 @@ Add-ADGroupMember -Identity "Developers" -Members "bob.smith"
 Add-ADGroupMember -Identity "Testers" -Members "emma.white"
 ```
 
+![users](AD_users.png)
 ### **<strong><font color="DarkCyan">Assigning Appropriate Permissions :</font></strong>**
 
 ##### **File Server Permissions :**
