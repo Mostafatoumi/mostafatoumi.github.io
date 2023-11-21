@@ -222,7 +222,7 @@ Great! Our signature is valid, but more importantly, we see it reflects our user
 
 ### Find 
 
-We generate the PGP public key and PGP signed message in the same way as before. By including the {{7*7}}, we successfully load the payload for SSTI.
+We generate the PGP public key and PGP signed message in the same way as before. By including the {{7x7}}, we successfully load the payload for SSTI.
 
 ![output of ssti](ssti_1.png)
 
