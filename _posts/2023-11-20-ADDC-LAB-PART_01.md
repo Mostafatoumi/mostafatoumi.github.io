@@ -493,7 +493,7 @@ Set-GPRegistryValue -Guid $CmdPowerShellRestrictionGPO.Id -Key "HKLM\SOFTWARE\Po
 $OUDistinguishedName = "OU=QA testers,DC=dc,DC=lab,DC=local"  # Replace with your actual OU
 New-GPLink -Name "CmdPowerShellRestrictionLink" -Target $OUDistinguishedName -LinkEnabled Yes -GPOName "CmdPowerShellRestriction"
 ```
-![GPO](GPO.png)
+![GPO](gpo.png)
 
 To force a `Group Policy update` on a local machine, you can use the following command:
 
