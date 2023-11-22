@@ -4,7 +4,7 @@ title:  Active Directory Management - A PowerShell Journey
 date: 2022-11-23 07:00:00 -500
 categories: [Powershell,AD DC]
 tags: [Active Directory,powershell]
-image: lab_01.png
+image: powershell.png
 img_path: /assets/img/favicons/HackTheBox/ADDC-LAB/
 ---
 
