@@ -493,7 +493,7 @@ Set-GPRegistryValue -Guid $CmdPowerShellRestrictionGPO.Id -Key "HKLM\SOFTWARE\Po
 $OUDistinguishedName = "OU=QA testers,DC=dc,DC=lab,DC=local"  # Replace with your actual OU
 New-GPLink -Name "CmdPowerShellRestrictionLink" -Target $OUDistinguishedName -LinkEnabled Yes -GPOName "CmdPowerShellRestriction"
 ```
-![GPO](GPO.png)
+![GPO](gpo.png)
 
 To force a `Group Policy update` on a local machine, you can use the following command:
 
@@ -506,26 +506,92 @@ Invoke-GPUpdate -Computer ComputerName -Force
 
 
 ## **<strong><font color="Brown">8. Adding Machines to the Domain</font></strong>**
+As we progress in our `Active Directory` journey, the next phase involves integrating client machines into the domain. This crucial step sets the foundation for a unified network under the watchful eye of our Active Directory infrastructure.
 
-   - Configuring client machines to join the domain.
-   - Troubleshooting common issues.
+### Preparing the Client Machine :
+Ensure the client machine has a valid `IP address` and can communicate with the domain controller.
 
-## 9. Networking Considerations
-   - Configuring firewalls and network policies.
-   - Port configurations for domain communication.
+![IP add config client 1](clinet_1_01.png)
 
-## 10. Security Best Practices
-    - Guidelines for securing your Windows Server environment.
-    - Regular updates and patch management.
+Confirm that the DNS settings on the client point to the Active Directory domain controller.
 
-## 11. Pentesting Tools Installation
-    - Installing common penetration testing tools (Metasploit, Wireshark, etc.).
-    - Configuring firewall rules for testing.
+![DNS config clinet 1](dns_clinet1.png)
 
-## 12. Logging and Monitoring
-    - Setting up logs for security events.
-    - Monitoring tools for tracking activities.
+### Joining the Domain:
+ To join a machine to a domain in Windows, we use use the Add-Computer `PowerShell` cmdlet :
 
-## 13. Conclusion
-    - Recap of the key steps and considerations.
-    - Encouragement for responsible and ethical use of the lab.
+```powershell
+Add-Computer -DomainName dc.lab.local -Credential dc.lab.local\Administrator -Restart
+
+```
+![add client 1 to domain](join_to_domain.png)
+
+If everything is alright, the machine will restart, indicating that we have successfully added the machine `user-1` to our domain `dc.lab.local`.
+
+### Verification:
+
+After the machine has restarted, we can now log in with our user that we just added to the domain: `bob.smith` with the password `Bob@2023!`
+
+![login with bob](bob_login.png)
+
+And in just a few minutes, the account setup will be complete.
+
+![setup_account](setup_account.png)
+
+Verify the machine's domain membership in the `Acive Directory Users and Computers` :
+
+![verify](verify_the_machine.png)
+
+**`Scenario`** : Bob, a Developer, is tasked with joining his Dev machine to the domain. Following the outlined steps, He is successfully integrates the machine into the `TechSecure Corp` domain.
+
+You can follow the same steps to add client 2 to the domain.
+
+
+## 9. Pentesting Tools Installation
+
+As we gear up for the exciting realm of `penetration testing`, the installation of essential tools becomes paramount. This segment focuses on deploying common penetration testing tools such as [Bloodhound](https://github.com/BloodHoundAD/BloodHound), [impacket](https://github.com/fortra/impacket) and [Wireshark](https://www.wireshark.org/download.html), ensuring our arsenal is well-equipped for comprehensive security assessments.
+
+I have created a table of `tools` that we will use in part two of this blog.
+
+
+| Tools | Description |
+| ----------- | ----------- |
+| [Impacket](https://github.com/fortra/impacket) | Impacket is a collection of Python classes for working with network protocols. |
+| [PowerSploit](https://github.com/PowerShellMafia/PowerSploit) | PowerSploit is a collection of Microsoft PowerShell modules that can be used to aid penetration testers during all phases of an assessment. |
+|[SharpCollection](https://github.com/Flangvik/SharpCollection)|SharpCollection, Nightly builds of common C# offensive tools,|
+|||
+
+## 10. Conclusion
+
+As we wrap up our `Active Directory` journey for `penetration testing`, let's take a moment to reflect on the key steps and considerations that have shaped our exploration. This concluding chapter serves as a compass, guiding us through the intricate terrain of securing our network environment.
+
+### Recap of Key Steps:
+`Active Directory Domain Controller Setup:
+`
+Successfully installed and configured the Active Directory Domain Controller, establishing the foundation for our secure network.
+
+`User and Group Management:
+`
+Implemented robust user and group management strategies, tailoring permissions and access based on roles within the organization.
+
+`Create Organizational Units (OU):` Organized users by adding them to OUs, making it simpler to link them with Group Policy Objects (GPO).
+
+`Group Policy Configuration:
+`
+Strengthened security through Group Policy Configuration, enforcing password complexity, account lockout policies, and even restricting command-line access for specific user groups.
+
+`Adding Machines to the Domain:
+`
+Integrated client machines seamlessly into the domain, fostering a unified network environment.
+
+`Pentesting Tools Installation:
+`
+Installed essential penetration testing tools like Impacket and Bloodhound , equipping our lab for comprehensive security assessments.
+
+### Encouragement:
+
+As you embark on your `penetration testing` endeavors, remember that responsible and ethical use of your lab is paramount. Each step you take contributes to your growth as a cybersecurity professional, and your commitment to ethical hacking enhances the overall security landscape.
+
+Congratulations on completing this `Active Directory` journey! May your future exploits be both challenging and enlightening. Stay curious, stay secure, and keep pushing the boundaries of your cybersecurity expertise.
+
+Thank you for joining me on this adventure. Until our paths cross again in the vast realm of cybersecurity!
