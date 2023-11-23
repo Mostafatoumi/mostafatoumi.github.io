@@ -8,9 +8,7 @@ image: powershell.png
 img_path: /assets/img/favicons/HackTheBox/ADDC-LAB/
 ---
 
-**Active Directory Management: A PowerShell Journey**
-
-# Mastering Active Directory: A PowerShell Odyssey
+**Mastering Active Directory: A PowerShell Odyssey**
 
 ## Introduction to PowerShell and Active Directory
 
