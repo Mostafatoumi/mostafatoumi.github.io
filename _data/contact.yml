@@ -1,5 +1,6 @@
 #  The contact options.
 
+
 - type: github
   icon: "fab fa-github"
 
@@ -13,6 +14,16 @@
 - type: rss
   icon: "fas fa-rss"
   noblank: true
+
+- type: hackthebox
+  icon: "fas fa-cube"
+  url: "https://app.hackthebox.com/public/users/962022"
+
+-
+  type: linkedin
+  icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
+  url:  'https://www.linkedin.com/in/mostafatoumi/'
+
 # Uncomment and complete the url below to enable more contact options
 #
 # - type: mastodon
