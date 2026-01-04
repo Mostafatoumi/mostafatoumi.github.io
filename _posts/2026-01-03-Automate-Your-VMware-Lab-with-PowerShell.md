@@ -152,56 +152,7 @@ pid=820, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
 pid=848, owner=Font Driver Host\UMFD-1, cmd=fontdrvhost.exe
 pid=856, owner=Font Driver Host\UMFD-0, cmd=fontdrvhost.exe
 pid=944, owner=NT AUTHORITY\NETWORK SERVICE, cmd=svchost.exe
-pid=988, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=384, owner=NT AUTHORITY\SYSTEM, cmd=LogonUI.exe
-pid=752, owner=Window Manager\DWM-1, cmd=dwm.exe
-pid=960, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=376, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=1036, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=1188, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1196, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1204, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1216, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1288, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=1304, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1336, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=1344, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1376, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1436, owner=NT AUTHORITY\NETWORK SERVICE, cmd=svchost.exe
-pid=1504, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=1644, owner=NT AUTHORITY\NETWORK SERVICE, cmd=svchost.exe
-pid=1688, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1708, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=1716, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=1904, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=2000, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=2008, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2016, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=1888, owner=NT AUTHORITY\SYSTEM, cmd=Memory Compression
-pid=1952, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2112, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2124, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=2212, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=2328, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=2404, owner=NT AUTHORITY\NETWORK SERVICE, cmd=svchost.exe
-pid=2412, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2432, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2492, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=2516, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=2580, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2624, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2632, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2776, owner=NT AUTHORITY\SYSTEM, cmd=spoolsv.exe
-pid=2896, owner=NT AUTHORITY\NETWORK SERVICE, cmd=svchost.exe
-pid=3016, owner=NT AUTHORITY\NETWORK SERVICE, cmd=svchost.exe
-pid=3024, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=3032, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
-pid=2656, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=2724, owner=NT AUTHORITY\SYSTEM, cmd=VGAuthService.exe
-pid=2980, owner=NT AUTHORITY\SYSTEM, cmd=MsMpEng.exe
-pid=2712, owner=NT AUTHORITY\SYSTEM, cmd=vmtoolsd.exe
-pid=3088, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
-pid=3096, owner=NT AUTHORITY\SYSTEM, cmd=vm3dservice.exe
+# -------snipped------- 
 pid=3112, owner=NT AUTHORITY\SYSTEM, cmd=svchost.exe
 pid=3256, owner=NT AUTHORITY\SYSTEM, cmd=vm3dservice.exe
 pid=3328, owner=NT AUTHORITY\LOCAL SERVICE, cmd=svchost.exe
@@ -328,11 +279,7 @@ memsize = "4388"
 mem.hotadd = "TRUE"
 sata0.present = "TRUE"
 nvme0.present = "TRUE"
-nvme0:0.fileName = "Windows 10 x64-000001.vmdk"
 nvme0:0.present = "TRUE"
-sata0:1.deviceType = "cdrom-image"
-sata0:1.fileName = "C:\Users\dell\Desktop\ISO\Windows_10.iso"
-sata0:1.present = "TRUE"
 usb.present = "TRUE"
 ehci.present = "TRUE"
 usb_xhci.present = "TRUE"
@@ -344,13 +291,6 @@ ethernet0.present = "TRUE"
 extendedConfigFile = "Windows 10 x64.vmxf"
 floppy0.present = "FALSE"
 gui.lastPoweredViewMode = "fullscreen"
-vmxstats.filename = "Windows 10 x64.scoreboard"
-numa.autosize.cookie = "40022"
-numa.autosize.vcpu.maxPerVirtualNode = "4"
-uuid.bios = "56 4d 97 43 fa f2 27 61-f5 da 79 65 e2 91 a3 08"
-uuid.location = "56 4d 4a 1a d3 98 f8 0f-55 14 08 80 ca ad 08 54"
-pciBridge0.pciSlotNumber = "17"
-pciBridge4.pciSlotNumber = "21"
 pciBridge5.pciSlotNumber = "22"
 pciBridge6.pciSlotNumber = "23"
 pciBridge7.pciSlotNumber = "24"
@@ -387,24 +327,10 @@ vmotion.svga.multisample8x = "1"
 vmotion.svga.logicBlendOps = "1"
 vmotion.svga.maxForcedSampleCount = "8"
 vmotion.svga.gl43 = "1"
-ethernet0.generatedAddress = "00:0C:29:91:A3:08"
 ethernet0.generatedAddressOffset = "0"
-vmci0.id = "-1801159540"
 monitor.phys_bits_used = "45"
 softPowerOff = "FALSE"
 sata0:1.startConnected = "TRUE"
-toolsInstallManager.lastInstallError = "0"
-tools.upgrade.policy = "upgradeAtPowerCycle"
-ethernet0.pvnID = "52 36 78 b4 6e e7 bd 14-b4 21 73 1b 4c 9d b8 ac"
-svga.guestBackedPrimaryAware = "TRUE"
-tools.capability.verifiedSamlToken = "TRUE"
-tools.remindInstall = "FALSE"
-toolsInstallManager.updateCounter = "3"
-guestInfo.detailed.data = "architecture='X86' bitness='64' buildNumber='19045' distroName='Windows' distroVersion='10.0' familyName='Windows' kernelVersion='19045.3803' prettyName='Windows 10 Pro, 64-bit (Build 19045.3803)'"
-checkpoint.vmState.readOnly = "FALSE"
-vm.genid = "-1956126922046584683"
-vm.genidX = "9146803400505436936"
-cleanShutdown = "FALSE"
 applianceView.coverPage.author = "emsec"
 applianceView.coverPage.version = "1"
 isolation.tools.hgfs.disable = "TRUE"
@@ -422,7 +348,7 @@ usb_xhci:4.parent = "-1"
 PS C:\Users\emsec-pc\Desktop>
 ```
 
-for example letsincrease memory from 4388 MB to 8192 MB (Before editing the .vmx file, it is important to ensure that the VM is powered off):
+For example, let’s increase the memory from 4388 MB to 8192 MB. Before editing the .vmx file, it is important to ensure that the VM is powered off :
 
 ```powershell
 $vmx = "C:\VM\Win10\Windows 10 x64.vmx"
