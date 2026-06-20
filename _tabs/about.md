@@ -4,91 +4,110 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-## **<strong><font color="Brown">About Me</font></strong>**
-* <font color="DarkGray">My Name is <strong>Mostafa Toumi</strong>, and I am an experienced Network Technician with a passion for IT. I am skilled in a variety of areas, including Network Security, Networking, Switching, Windows Server, Computer Hardware, and Computer Repair.</font>
-* <font color="DarkGray">In addition to my technical expertise, I also have a strong interest in the field of <strong>Cyber Security</strong>, particularly in the areas of <strong>Penetration Testing</strong> and <strong>Offensive-Defensive</strong> Security.</font>
+## **<font color="Brown">whoami</font>**
 
-<font>I am excited to bring my skills and knowledge to any project or team that I work with. Please feel free to contact me if you have any questions or opportunities that you would like to discuss.</font>
+<font color="DarkGray">
+I'm <strong>Mostafa Toumi</strong>, known online as <strong>EmSec</strong>. a cybersecurity practitioner focused on offensive security, penetration testing, and Active Directory attack research.
+</font>
 
-**<strong><font color="Brown">My Template Resume</font></strong>**
-* [Mostafa Toumi](https://drive.google.com/file/d/1Jl9r75Tm2JenxMd92rzhnPTZTcnwntBX/view){:target="_blank"}
+<font color="DarkGray">
+I'm an <strong>HTB Content Creator</strong>, contributing original machine ideas and attack chains to the Hack The Box platform. I love simulating real-world attacks in my home lab, especially complex Active Directory environments where I can design, break, and harden infrastructure end-to-end.
+</font>
 
-**<strong><font color="Brown">Professional Certificate</font></strong>**
-* <font color="DarkGray">Bachelor of Science Physics: <em>July 2019</em></font>
-* <font color="DarkGray">Specialized Technician Diploma in Computer Network Techniques: <em>July 2021</em>.</font>
+<font color="DarkGray">
+On this blog website, I publish writeups, security tutorials, and occasionally deep-dive walkthroughs. My weekly rhythm: <strong>every Friday and Sunday</strong> I sharpen my skills by practicing on Hack The Box.
+</font>
 
-**<strong><font color="Brown">Skills</font></strong>**
+---
 
-### **<strong><font color="DarkCyan">Networking</font></strong>**
-* <font color="DarkGray"><em><strong>Network configuration and troubleshooting:</strong> Understanding how to configure and troubleshoot network devices such as routers, switches, and firewalls.</em></font>
-* <font color="DarkGray"><em><strong>TCP/IP and network protocols:</strong> Knowledge of TCP/IP suite and familiarity with protocols like DNS, DHCP, HTTP, FTP, SMTP, etc.</em></font>
-* <font color="DarkGray"><em><strong>Routing and switching:</strong> Understanding of routing protocols (e.g., OSPF, BGP) and switching concepts, including VLANs and spanning tree protocol (STP).</em></font>
-* <font color="DarkGray"><em><strong>Network security:</strong> Awareness of network security principles, including access control lists (ACLs), firewalls, VPNs, and network hardening techniques.</em></font>
+## **<font color="Brown">HTB Contributions</font>**
 
-### **<strong><font color="DarkCyan">Programming Languages</font></strong>**
-* <font color="DarkGray"><em><strong>Python3, SQLite3 python3, C, HTML, CSS, Bash Scripting</strong></em></font>
+Machines I've authored and contributed to on Hack The Box:
 
-<font>I have extensive experience in creating script automation networking tools using <strong>Scapy</strong>. Additionally, I utilize <strong>Bash</strong> scripting and <strong>Python3</strong> for engaging in Capture The Flag (CTF) challenges on platforms like HackTheBox and TryHackMe.</font>
+| Machine                                                                          | Difficulty | OS      | Release Date |
+| -------------------------------------------------------------------------------- | ---------- | ------- | ------------ |
+| [Infiltrator](https://www.hackthebox.com/machines/infiltrator){:target="_blank"} | Insane     | Windows | 2024-08-31   |
+| [Sightless](https://www.hackthebox.com/machines/sightless){:target="_blank"}     | Easy       | Linux   | 2024-09-07   |
+| [Trickster](https://www.hackthebox.com/machines/Trickster){:target="_blank"}     | Medium     | Linux   | 2024-09-21   |
+| [Haze](https://www.hackthebox.com/machines/haze){:target="_blank"}               | Hard       | Windows | 2025-03-29   |
+| [Scepter](https://www.hackthebox.com/machines/scepter){:target="_blank"}         | Hard       | Windows | 2025-04-19   |
+| [RustyKey](https://www.hackthebox.com/machines/rustykey){:target="_blank"}       | Hard       | Windows | 2025-06-28   |
+| [Mirage](https://www.hackthebox.com/machines/mirage){:target="_blank"}           | Hard       | Windows | 2025-07-19   |
+| [NanoCorp](https://www.hackthebox.com/machines/nanocorp){:target="_blank"}       | Hard       | Windows | 2025-11-08   |
+| [DevArea](https://www.hackthebox.com/machines/devarea){:target="_blank"}         | Medium     | Linux   | 2026-03-28   |
+| [DanglingTree](https://www.hackthebox.com/machines/DanglingTree){:target="_blank"}         | Medium     | Windows   | 2026-06-18   |
 
-### **<strong><font color="DarkCyan">Penetration Testing</font></strong>**
-* <font color="DarkGray"><em><strong>Active Directory, Kerberoasting, and web application vulnerabilities</strong></em></font>
 
-<font>I am drawn to the enumeration of <strong>Active Directory</strong> and <strong>Kerberos</strong> due to the valuable insights, privilege escalation opportunities, trust relationship exploitation, identification of weak credentials, and discovery of service accounts it offers.</font>
 
-### **<strong><font color="DarkCyan">Information Security</font></strong>**
-* <font color="DarkGray"><em><strong>Application Security</strong></em></font>
-* <font color="DarkGray"><em><strong>Network Security</strong></em></font>
-* <font color="DarkGray"><em><strong>OWASP TOP 10</strong></em></font>
-* <font color="DarkGray"><em><strong>Wireshark Analysis</strong></em></font>
 
-### **<strong><font color="DarkCyan">Operating System</font></strong>**
-* <font color="DarkGray"><em><strong>Windows Server 2012 R2 and 2016</strong></em></font>
-* <font color="DarkGray"><em><strong>Kali Linux</strong></em></font>
-* <font color="DarkGray"><em><strong>Ubuntu</strong></em></font>
-* <font color="DarkGray"><em><strong>CentOS</strong></em></font>
-* <font color="DarkGray"><em><strong>Parrot</strong></em></font>
+**HTB Business:**
 
-<font>Having experimented with numerous operating systems, I have found that my ultimate preference consistently lies with <strong>Kali Linux</strong>. Its extensive range of security tools and capabilities make it my go-to choice.</font>
+| Machine | Difficulty | OS    | Release Date |
+| ------- | ---------- | ----- | ------------ |
+| EdgeAi  | Medium     | Linux | 2025-01-22   |
 
-## **<strong><font color="Brown">Licenses & Certifications</font></strong>**
+
+---
+
+## **<font color="Brown">Core Expertise</font>**
+
+### **<font color="DarkCyan">Offensive Security & Penetration Testing</font>**
+<font color="DarkGray">Active Directory attacks (Kerberoasting, RBCD, DACL abuse, ADCS ESC chains, Kerberos delegation), NTLM relay, DCOM lateral movement, GPO abuse, web application vulnerabilities (OWASP Top 10), and network protocol exploitation.</font>
+
+### **<font color="DarkCyan">Networking</font>**
+<font color="DarkGray">TCP/IP, routing protocols (OSPF, BGP), VLANs, firewall configuration, VPNs, and network security hardening.</font>
+
+### **<font color="DarkCyan">Development & Scripting</font>**
+<font color="DarkGray">Python3, Bash, C, HTML/CSS — used primarily for security tooling, CTF automation, and lab infrastructure. Experience with Scapy for packet-level scripting.</font>
+
+### **<font color="DarkCyan">Operating Systems</font>**
+<font color="DarkGray">Kali Linux, Ubuntu, Windows Server (2016/2019), Parrot OS, CentOS — comfortable administering and attacking both Linux and Windows environments.</font>
+
+---
+
+## **<font color="Brown">Certifications</font>**
+
 * [CCNA: Enterprise Networking, Security, and Automation](https://www.credly.com/badges/4058813d-f135-4190-919c-a6905662169a/public_url){:target="_blank"}
 * [CCNA: Switching, Routing, and Wireless Essentials](https://www.credly.com/badges/30bd4cb2-d56a-4540-9d7d-4124bb54e8b0/public_url){:target="_blank"}
 * [CCNA: Introduction to Networks](https://www.credly.com/badges/60af3227-2de6-44bc-a863-340095a04aa9/public_url){:target="_blank"}
-* [Red Teaming](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-ODJEAYLIDZ.png){:target="_blank"}
-* [Jr Penetration Tester](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-XE9DBFSKCG.png){:target="_blank"}
-* [Web Fundamentals](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-ZD4RACYLOF.png){:target="_blank"}
-* [CompTIA Pentest+](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TOCILHYNSO.png){:target="_blank"}
-* [Pre Security](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-S21DYWCH3R.png){:target="_blank"}
-* [Introduction to Cyber Security](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TVBSSWOQXY.png){:target="_blank"}
-* [Complete Beginner](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-GNZIZENJMR.png){:target="_blank"}
 * [CCNA Security](https://drive.google.com/file/d/1o9wvtL0i4ChIdlCTkrVhWGMy55FhOVE5/view){:target="_blank"}
-* [CLA - Programming Essentials in C](https://drive.google.com/file/d/1PmBo2xUjN6bpbE26i7JMnbNG-4-luPNE/view){:target="_blank"}
-* [IT Essentials: PC Hardware and Software](https://drive.google.com/file/d/1bGywmypJHFOWNT67aWEI7iazZAlpUhPO/view){:target="_blank"}
+* [Red Teaming — TryHackMe](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-ODJEAYLIDZ.png){:target="_blank"}
+* [Jr Penetration Tester — TryHackMe](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-XE9DBFSKCG.png){:target="_blank"}
+* [CompTIA Pentest+ — TryHackMe](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-TOCILHYNSO.png){:target="_blank"}
+* [CLA: Programming Essentials in C](https://drive.google.com/file/d/1PmBo2xUjN6bpbE26i7JMnbNG-4-luPNE/view){:target="_blank"}
+* Bachelor of Science in Physics — *July 2019*
+* Specialized Technician Diploma in Computer Network Techniques — *July 2021*
 
-## **<strong><font color="Brown">My Profiles</font></strong>**
-Check my profile on the CTF platform:
-* [My TryHackMe's Profile](https://tryhackme.com/p/Hightech){:target="_blank"}
-* [My HackThe Box Profile](https://www.hackthebox.com/home/users/profile/962022){:target="_blank"}
+---
 
-| My HTB account | My THM account |
+## **<font color="Brown">Profiles</font>**
+
+| [HackTheBox](https://www.hackthebox.com/home/users/profile/962022){:target="_blank"} | [TryHackMe](https://tryhackme.com/p/Hightech){:target="_blank"} |
 | --- | --- |
 | ![HTB Badge](https://www.hackthebox.eu/badge/image/962022) | ![THM Badge](https://tryhackme-badges.s3.amazonaws.com/Hightech.png) |
 
-## **<strong><font color="Brown">About the Blog</font></strong>**
-* <font color="DarkGray"><strong>Problem Solving</strong></font>
-* <font color="DarkGray"><strong>Ethical Hacking Tutorials</strong></font>
-* <font color="DarkGray"><strong>Installing Services && Tools on Linux Distributions</strong></font>
-* <font color="DarkGray"><strong>Making Scripts With Various Languages</strong></font>
-* <font color="DarkGray"><strong>CTF Challenge Walkthrough</strong></font>
+---
 
-## **<strong><font color="Brown">Socials</font></strong>**
-<font color="DarkGray">You can find me on:</font>
+## **<font color="Brown">What You'll Find on This Blog</font>**
+
+* HTB machine writeups and walkthroughs
+* Active Directory attack technique breakdowns
+* Security tooling and scripting
+* CTF challenge solutions
+* Linux and Windows lab setup guides
+
+---
+
+## **<font color="Brown">Get in Touch</font>**
+
+<font color="DarkGray">Find me on:</font>
+
 * [LinkedIn](https://www.linkedin.com/in/Mostafatoumi/){:target="_blank"}
-* [Twitter](https://twitter.com/EmSec0){:target="_blank"}
+* [Twitter / X](https://twitter.com/EmSec0){:target="_blank"}
 * [GitHub](https://github.com/Mostafatoumi){:target="_blank"}
 
-<font color="DarkGray">My Email Address: <em><strong>Mostafatoumi0@gmail.com</strong></em></font>
+<font color="DarkGray">Email: <strong>Mostafatoumi0@gmail.com</strong></font>
 
-<font color="DarkGray">If you have any questions about one of my writeups or anything else, please feel free to reach out to me.</font>
+<font color="DarkGray">Have a question about a writeup or want to discuss a technique? Feel free to reach out.</font>
 
 <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="Mostafatoumi" data-description="Support me on Buy me a coffee!" data-message="" data-color="#BD5FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
