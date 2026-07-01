@@ -25,11 +25,13 @@ title: Mostafa Toumi                          # the main title
 
 tagline: Computer Networking Specialist | Penetration Tester | CTF Player  # it will display as the sub-title
 
-description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+description: >-
+  Mostafa Toumi (EmSec) — Hack The Box Content Creator and penetration tester. 
+  Writeups on Active Directory attacks, ADCS abuse, red team techniques, and 
+  offensive security research.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ''
+url: "https://mostafatoumi.github.io"
 
 github:
   username: Mostafatoumi             # change to your github username
@@ -50,7 +52,8 @@ social:
     - https://www.facebook.com/
     - https://www.linkedin.com/in/Mostafatoumi
 
-google_site_verification:               # fill in to your verification string
+# fill in to your verification string
+google_site_verification: MsXaGv_Ph66sKy77OC6jF6UCHr8uECSPY--dhYmNp2I
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
