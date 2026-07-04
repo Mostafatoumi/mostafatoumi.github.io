@@ -36,6 +36,7 @@ Machines I've authored and contributed to on Hack The Box:
 | [NanoCorp](https://www.hackthebox.com/machines/nanocorp){:target="_blank"}       | Hard       | Windows | 2025-11-08   |
 | [DevArea](https://www.hackthebox.com/machines/devarea){:target="_blank"}         | Medium     | Linux   | 2026-03-28   |
 | [DanglingTree](https://www.hackthebox.com/machines/DanglingTree){:target="_blank"}         | Medium     | Windows   | 2026-06-18   |
+| [TrustFall](https://www.hackthebox.com/machines/TrustFall){:target="_blank"}         | Insane     | Windows   | 2026-07-15   |
 
 
 
@@ -58,10 +59,8 @@ Machines I've authored and contributed to on Hack The Box:
 <font color="DarkGray">TCP/IP, routing protocols (OSPF, BGP), VLANs, firewall configuration, VPNs, and network security hardening.</font>
 
 ### **<font color="DarkCyan">Development & Scripting</font>**
-<font color="DarkGray">Python3, Bash, C, HTML/CSS — used primarily for security tooling, CTF automation, and lab infrastructure. Experience with Scapy for packet-level scripting.</font>
+<font color="DarkGray">Python3, Bash, C, HTML/CSS. used primarily for security tooling, CTF automation, and lab infrastructure. Experience with Scapy for packet-level scripting.</font>
 
-### **<font color="DarkCyan">Operating Systems</font>**
-<font color="DarkGray">Kali Linux, Ubuntu, Windows Server (2016/2019), Parrot OS, CentOS — comfortable administering and attacking both Linux and Windows environments.</font>
 
 ---
 
@@ -82,9 +81,9 @@ Machines I've authored and contributed to on Hack The Box:
 
 ## **<font color="Brown">Profiles</font>**
 
-| [HackTheBox](https://www.hackthebox.com/home/users/profile/962022){:target="_blank"} | [TryHackMe](https://tryhackme.com/p/Hightech){:target="_blank"} |
+| [HackTheBox](https://www.hackthebox.com/home/users/profile/962022){:target="_blank"} | [TryHackMe](https://tryhackme.com/p/emsec){:target="_blank"} |
 | --- | --- |
-| ![HTB Badge](https://www.hackthebox.eu/badge/image/962022) | ![THM Badge](https://tryhackme-badges.s3.amazonaws.com/Hightech.png) |
+| ![HTB Badge](https://www.hackthebox.eu/badge/image/962022) | ![THM Badge](https://tryhackme-badges.s3.amazonaws.com/emsec.png) |
 
 ---
 
