@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HackTheBox DevArea Walkthrough
-date: 2026-07-04 07:00:00 -500
+date: 2026-07-04 07:30:00 -500
 categories: [HackTheBox Walkthrough]
 tags: [HackTheBox]
 image:
